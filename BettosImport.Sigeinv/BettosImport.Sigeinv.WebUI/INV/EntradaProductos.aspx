@@ -30,12 +30,12 @@
                         </div>
                         <div class="col-xs-4">
                             <label>Proveedor</label>
-                              <asp:DropDownList ID="ddlProveedor" runat="server" CssClass="form-control"></asp:DropDownList> 
+                              <asp:DropDownList ID="ddlProveedor" runat="server" CssClass="form-control" Enabled="false"></asp:DropDownList> 
                         </div>
 
                         <div class="col-xs-4">
                             <label>Tienda Origen</label>
-                              <asp:DropDownList ID="ddlTiendaOrigen" runat="server" CssClass="form-control" ></asp:DropDownList> 
+                              <asp:DropDownList ID="ddlTiendaOrigen" runat="server" CssClass="form-control" Enabled="false"></asp:DropDownList> 
                         </div>
                     </div> 
                     <br />
@@ -60,15 +60,15 @@
                     <div class="row">
                        <div class="col-xs-4">
                             <label>Marca</label>
-                            <asp:TextBox ID="txtMarca" CssClass="form-control" placeholder="Marca" runat="server" readonly="true" MaxLength="50"></asp:TextBox>                       
+                            <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server" readonly="true" MaxLength="50"></asp:TextBox>                       
                        </div>
                        <div class="col-xs-4">
                             <label>Categoria</label>
-                            <asp:TextBox ID="txtCategoria" CssClass="form-control" placeholder="Categoria" runat="server" readonly="true" MaxLength="50"></asp:TextBox>                       
+                            <asp:TextBox ID="txtCategoria" CssClass="form-control" runat="server" readonly="true" MaxLength="50"></asp:TextBox>                       
                        </div>
                        <div class="col-xs-4">
                             <label>SubCategoria</label>
-                            <asp:TextBox ID="txtSubCategoria" CssClass="form-control" placeholder="SubCategoria" runat="server" readonly="true" MaxLength="50"></asp:TextBox>                       
+                            <asp:TextBox ID="txtSubCategoria" CssClass="form-control" runat="server" readonly="true" MaxLength="50"></asp:TextBox>                       
                         </div>
                     </div> 
                     <br />
@@ -89,10 +89,14 @@
                     </div> 
                     <br />
 
-                    <div class="row">           
+                    <div class="row">      
+                        <%-- <div class="col-xs-4">
+                            <label>Fecha Emision</label>
+                            <asp:TextBox ID="TxtFecEmision" textmode="Date" CssClass="form-control"runat="server"></asp:TextBox>                       
+                        </div>  --%>   
                         <div class="col-xs-8">
                             <label>Comentario</label>
-                            <asp:TextBox ID="txtComentario" CssClass="form-control" placeholder="Comentario" runat="server" readonly="false" MaxLength="500"></asp:TextBox>                       
+                            <asp:TextBox ID="txtComentario" textmode="MultiLine" CssClass="form-control" placeholder="Comentario" runat="server" readonly="false" MaxLength="500"></asp:TextBox>                       
                         </div>
                     </div> 
                     <br />

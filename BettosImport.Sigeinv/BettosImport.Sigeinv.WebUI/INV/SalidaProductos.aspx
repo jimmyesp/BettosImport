@@ -79,7 +79,7 @@
                         </div>
                         <div class="col-xs-8">
                             <label>Comentario</label>
-                            <asp:TextBox ID="txtComentario" CssClass="form-control" placeholder="Comentario" runat="server" readonly="false" MaxLength="500"></asp:TextBox>                       
+                            <asp:TextBox ID="txtComentario" TextMode="MultiLine" CssClass="form-control" placeholder="Comentario" runat="server" readonly="false" MaxLength="500"></asp:TextBox>                       
                         </div>
                     </div> 
                     <br />

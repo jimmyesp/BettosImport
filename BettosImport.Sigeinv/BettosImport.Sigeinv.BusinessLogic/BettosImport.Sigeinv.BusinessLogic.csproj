@@ -44,6 +44,7 @@
     <Compile Include="ADM\BL_Rol.cs" />
     <Compile Include="ADM\BL_Tienda.cs" />
     <Compile Include="ADM\BL_Usuario.cs" />
+    <Compile Include="ADM\BL_UsuarioTienda.cs" />
     <Compile Include="INV\BL_Categoria.cs" />
     <Compile Include="INV\BL_Marca.cs" />
     <Compile Include="INV\BL_Movimiento.cs" />

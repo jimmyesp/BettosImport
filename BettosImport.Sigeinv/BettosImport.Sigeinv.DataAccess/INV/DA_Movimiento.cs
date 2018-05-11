@@ -10,7 +10,7 @@ namespace BettosImport.Sigeinv.DataAccess.INV
 {
     public class DA_Movimiento : DA_BaseClass
     {
-        public static List<BE_Movimiento> ListarSalidaProductos(string dscModelo)
+        public static List<BE_Movimiento> ListarSalidaProductos(string codTienda)
         {
             try
             {
@@ -20,7 +20,7 @@ namespace BettosImport.Sigeinv.DataAccess.INV
                     using (MySqlCommand cmd = new MySqlCommand("SP_Inv_Movimiento_ListarSalida", cn))
                     {
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.Add("_dscModelo", MySqlDbType.VarChar).Value = dscModelo;
+                        cmd.Parameters.Add("_codTienda", MySqlDbType.VarChar).Value = codTienda;
 
                         using (MySqlDataReader lector = cmd.ExecuteReader())
                         {
@@ -30,11 +30,12 @@ namespace BettosImport.Sigeinv.DataAccess.INV
                             {
                                 objMovimiento = new BE_Movimiento();
 
+                                objMovimiento.id = Convert.ToInt64(lector["id"]);
                                 objMovimiento.dscCategoria = Convert.ToString(lector["dscCategoria"]);
                                 objMovimiento.dscSubCategoria = Convert.ToString(lector["dscSubCategoria"]);
                                 objMovimiento.dscMarca = Convert.ToString(lector["dscMarca"]);
                                 objMovimiento.dscModelo = Convert.ToString(lector["dscModelo"]);
-                                objMovimiento.dscTiendaDestino = Convert.ToString(lector["dscTienda"]);
+                                objMovimiento.dscTiendaDestino = Convert.ToString(lector["Tienda Destino"]);
                                 objMovimiento.numCantidad = Convert.ToInt16(lector["numCantidad"]);
                                 objMovimiento.fecEmision = Convert.ToDateTime(lector["fecEmision"]);
 
@@ -59,7 +60,7 @@ namespace BettosImport.Sigeinv.DataAccess.INV
 
 
 
-        public static List<BE_Movimiento> ListarEntradaProductos(string dscModelo)
+        public static List<BE_Movimiento> ListarEntradaProductos(string codTienda)
         {
             try
             {
@@ -69,7 +70,7 @@ namespace BettosImport.Sigeinv.DataAccess.INV
                     using (MySqlCommand cmd = new MySqlCommand("SP_Inv_Movimiento_ListarEntrada", cn))
                     {
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.Add("_dscModelo", MySqlDbType.VarChar).Value = dscModelo;
+                        cmd.Parameters.Add("_codTienda", MySqlDbType.VarChar).Value = codTienda;
 
                         using (MySqlDataReader lector = cmd.ExecuteReader())
                         {
@@ -79,12 +80,13 @@ namespace BettosImport.Sigeinv.DataAccess.INV
                             {
                                 objMovimiento = new BE_Movimiento();
 
+                                objMovimiento.id = Convert.ToInt64(lector["id"]);
                                 objMovimiento.dscCategoria = Convert.ToString(lector["dscCategoria"]);
                                 objMovimiento.dscSubCategoria = Convert.ToString(lector["dscSubCategoria"]);
                                 objMovimiento.dscMarca = Convert.ToString(lector["dscMarca"]);
                                 objMovimiento.dscModelo = Convert.ToString(lector["dscModelo"]);
                                 objMovimiento.dscProveedor = Convert.ToString(lector["dscProveedor"]);
-                                objMovimiento.dscTiendaOrigen = Convert.ToString(lector["dscTienda"]);
+                                objMovimiento.dscTiendaOrigen = Convert.ToString(lector["Tienda Origen"]);
                                 objMovimiento.numCantidad = Convert.ToInt16(lector["numCantidad"]);
                                 objMovimiento.fecEmision = Convert.ToDateTime(lector["fecEmision"]);
 

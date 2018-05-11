@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BettosImport.Sigeinv.BusinessLogic.INV;
 using BettosImport.Sigeinv.BusinessEntities.INV;
+using BettosImport.Sigeinv.BusinessLogic.ADM;
+using BettosImport.Sigeinv.BusinessEntities.ADM;
 using BettosImport.Sigeinv.Common;
 
 namespace BettosImport.Sigeinv.WebUI.INV
@@ -14,7 +16,20 @@ namespace BettosImport.Sigeinv.WebUI.INV
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!(Page.IsPostBack))
+            {
+                ListarMovimientoSalidas();
 
+            }
+        }
+
+        private void ListarMovimientoSalidas()
+        {
+            BE_Usuario objSesionLogin = (BE_Usuario)Context.Session[Constantes.USUARIO_SESION];
+            BE_UsuarioTienda objUsuTienda = BL_UsuarioTienda.GetUsuarioTienda(objSesionLogin.codUsuario);
+            List<BE_Movimiento> lstSalidas = BL_Movimiento.ListarSalidaProductos(objUsuTienda.codTienda);
+            gvListado.DataSource = lstSalidas;
+            gvListado.DataBind();
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)

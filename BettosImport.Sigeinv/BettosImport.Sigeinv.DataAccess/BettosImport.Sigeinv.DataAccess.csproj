@@ -46,6 +46,7 @@
     <Compile Include="ADM\DA_Rol.cs" />
     <Compile Include="ADM\DA_Tienda.cs" />
     <Compile Include="ADM\DA_Usuario.cs" />
+    <Compile Include="ADM\DA_UsuarioTienda.cs" />
     <Compile Include="DA_BaseClass.cs" />
     <Compile Include="INV\DA_Categoria.cs" />
     <Compile Include="INV\DA_Marca.cs" />

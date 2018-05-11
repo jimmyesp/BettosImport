@@ -38,7 +38,7 @@
                         <EditRowStyle BackColor="#ffffcc" />
                         <PagerStyle CssClass="pagination-ys" />
                         <Columns>
-                            <asp:BoundField DataField="codProducto" HeaderText="Código" />
+                            <asp:BoundField DataField="id" HeaderText="Código" />
                             <asp:BoundField DataField="dscCategoria" HeaderText="Categoría" />
                             <asp:BoundField DataField="dscSubCategoria" HeaderText="SubCategoría" />
                             <asp:BoundField DataField="dscMarca" HeaderText="Marca" />

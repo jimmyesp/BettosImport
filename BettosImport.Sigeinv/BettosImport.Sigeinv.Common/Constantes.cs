@@ -32,5 +32,8 @@ namespace BettosImport.Sigeinv.Common
         public const string ESTADO_ACTIVO = "A";
         public const string ESTADO_INACTIVO = "I";
 
+
+        public const string ESTADO_INDPROVEEDOR = "1";
+
     }
 }

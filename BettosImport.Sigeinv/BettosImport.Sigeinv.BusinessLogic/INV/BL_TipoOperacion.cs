@@ -14,5 +14,15 @@ namespace BettosImport.Sigeinv.BusinessLogic.INV
         {
             return DA_TipoOperacion.ListarTiposOperaciones();
         }
+
+        public static List<BE_TipoOperacion> ListarTiposOperacionesSalidas()
+        {
+            return DA_TipoOperacion.ListarTiposOperacionesSalidas();
+        }
+
+        public static BE_TipoOperacion GetTipoOperacion(string codTipoOperacion)
+        {
+            return DA_TipoOperacion.GetTipoOperacion(codTipoOperacion);
+        }
     }
 }

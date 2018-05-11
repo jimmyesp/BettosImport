@@ -60,16 +60,40 @@ namespace BettosImport.Sigeinv.WebUI.INV
         private void ListarTiposOperaciones()
         {
             List<BE_TipoOperacion> lstTipoOper = BL_TipoOperacion.ListarTiposOperaciones();
-            ddlTipoSalida.DataSource = lstTipoOper;
-            ddlTipoSalida.DataValueField = "codTipoOperacion";
-            ddlTipoSalida.DataTextField = "dscTipoOperacion";
-            ddlTipoSalida.DataBind();
-            ddlTipoSalida.Items.Insert(0, new ListItem("--Seleccione--", String.Empty));
+            ddlTipoEntrada.DataSource = lstTipoOper;
+            ddlTipoEntrada.DataValueField = "codTipoOperacion";
+            ddlTipoEntrada.DataTextField = "dscTipoOperacion";
+            ddlTipoEntrada.DataBind();
+            ddlTipoEntrada.Items.Insert(0, new ListItem("--Seleccione--", String.Empty));
         }
 
         protected void lbRegresar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Entradas.aspx");
+        }
+
+        protected void ddlTipoEntrada_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BE_TipoOperacion objTipoOperacion = BL_TipoOperacion.GetTipoOperacion(ddlTipoEntrada.SelectedValue);
+
+            if (objTipoOperacion != null)
+            {
+                ddlProveedor.SelectedIndex = 0;
+                ddlTiendaOrigen.SelectedIndex = 0;
+                if (objTipoOperacion.indProveedor == Constantes.ESTADO_INDPROVEEDOR)
+                {
+                    ddlProveedor.Enabled = true;
+                    ddlTiendaOrigen.Enabled = false;
+                }
+                else
+                {
+                    ddlTiendaOrigen.Enabled = true;
+                    ddlProveedor.Enabled = false;
+                }
+
+            }
+
+            
         }
     }
 }

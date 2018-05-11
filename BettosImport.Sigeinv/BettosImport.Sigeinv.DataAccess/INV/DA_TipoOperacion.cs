@@ -50,5 +50,90 @@ namespace BettosImport.Sigeinv.DataAccess.INV
             }
 
         }
+
+
+
+        public static List<BE_TipoOperacion> ListarTiposOperacionesSalidas()
+        {
+            try
+            {
+                using (MySqlConnection cn = new MySqlConnection(cnMySql()))
+                {
+                    cn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("SP_Inv_TipoOperacion_ListarSalidas", cn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        using (MySqlDataReader lector = cmd.ExecuteReader())
+                        {
+                            List<BE_TipoOperacion> lstTipoOperacionSalida = new List<BE_TipoOperacion>();
+                            BE_TipoOperacion objTipoOper;
+                            while (lector.Read())
+                            {
+
+                                objTipoOper = new BE_TipoOperacion();
+                                objTipoOper.codTipoOperacion = Convert.ToString(lector["codTipoOperacion"]);
+                                objTipoOper.dscTipoOperacion = Convert.ToString(lector["dscTipoOperacion"]);
+
+
+                                lstTipoOperacionSalida.Add(objTipoOper);
+                            }
+
+                            return lstTipoOperacionSalida;
+
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+
+        public static BE_TipoOperacion GetTipoOperacion(string codTipoOperacion)
+        {
+            try
+            {
+                using (MySqlConnection cn = new MySqlConnection(cnMySql()))
+                {
+                    cn.Open();
+                    using (MySqlTransaction trx = cn.BeginTransaction())
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand("SP_Inv_TipoOperacion_Obtener", cn))
+                        {
+                            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                            cmd.Parameters.Add("_codTipoOperacion", MySqlDbType.VarChar).Value = codTipoOperacion;
+
+                            using (MySqlDataReader lector = cmd.ExecuteReader())
+                            {
+                                BE_TipoOperacion objTipoOperacion = null;
+                                while (lector.Read())
+                                {
+
+                                    objTipoOperacion = new BE_TipoOperacion();
+
+                                    objTipoOperacion.indProveedor = Convert.ToString(lector["indProveedor"]);
+
+                                }
+
+                                return objTipoOperacion;
+
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

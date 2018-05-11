@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-xs-4">
                             <label>Tipo de Entrada</label>
-                              <asp:DropDownList ID="ddlTipoSalida" runat="server" CssClass="form-control"></asp:DropDownList> 
+                              <asp:DropDownList ID="ddlTipoEntrada" AutoPostBack="true" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlTipoEntrada_SelectedIndexChanged"></asp:DropDownList> 
                         </div>
                         <div class="col-xs-4">
                             <label>Proveedor</label>
@@ -90,10 +90,10 @@
                     <br />
 
                     <div class="row">      
-                        <%-- <div class="col-xs-4">
+                        <div class="col-xs-4">
                             <label>Fecha Emision</label>
-                            <asp:TextBox ID="TxtFecEmision" textmode="Date" CssClass="form-control"runat="server"></asp:TextBox>                       
-                        </div>  --%>   
+                            <asp:TextBox ID="TxtFecEmision" textmode="Date" CssClass="form-control" runat="server"></asp:TextBox>                       
+                        </div>     
                         <div class="col-xs-8">
                             <label>Comentario</label>
                             <asp:TextBox ID="txtComentario" textmode="MultiLine" CssClass="form-control" placeholder="Comentario" runat="server" readonly="false" MaxLength="500"></asp:TextBox>                       

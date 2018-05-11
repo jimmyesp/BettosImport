@@ -12,7 +12,8 @@ namespace BettosImport.Sigeinv.BusinessEntities.INV
         public string codTipoOperacion { get; set; }
         public string dscTipoOperacion { get; set; }
         public string tipoOperacion { get; set; }
-        public string dscCorrelativo { get; set; }
+        public Int64 numCorrelativo { get; set; }
+        public string indProveedor { get; set; }
         public string dscUsuCreacion { get; set; }
         public DateTime fecCreacion { get; set; }
         public string dscUsuModificacion { get; set; }

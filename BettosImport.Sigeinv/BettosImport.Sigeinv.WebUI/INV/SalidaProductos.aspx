@@ -22,6 +22,13 @@
                 </div>  
                 <div class="panel panel-body">
               
+                   <div class="row">
+                        <div class="col-xs-4">
+                            <label>Tipo Salida</label>
+                              <asp:DropDownList ID="ddlTipoSalida" runat="server" CssClass="form-control"></asp:DropDownList> 
+                        </div>
+                    </div> 
+                    <br />
 
                     <div class="row">
                         <div class="col-xs-4">
@@ -77,7 +84,11 @@
                             <label>Nº Documento</label>
                             <asp:TextBox ID="txtNumDoc" CssClass="form-control" placeholder="Numero de Documento" runat="server" readonly="false" MaxLength="50"></asp:TextBox>                       
                         </div>
-                        <div class="col-xs-8">
+                        <div class="col-xs-4">
+                            <label>Fecha Emision</label>
+                            <asp:TextBox ID="TxtFecEmision" textmode="Date" CssClass="form-control" runat="server"></asp:TextBox>                       
+                        </div> 
+                        <div class="col-xs-4">
                             <label>Comentario</label>
                             <asp:TextBox ID="txtComentario" TextMode="MultiLine" CssClass="form-control" placeholder="Comentario" runat="server" readonly="false" MaxLength="500"></asp:TextBox>                       
                         </div>

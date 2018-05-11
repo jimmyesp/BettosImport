@@ -20,10 +20,21 @@ namespace BettosImport.Sigeinv.WebUI.INV
             {
                 hfAccion.Value = Request.QueryString["Accion"].ToString();
 
+                ListarTiposOperacionesSalidas();
                 ListarTiendas();
                 ListarTiposDocumentos();
             }
 
+        }
+
+        private void ListarTiposOperacionesSalidas()
+        {
+            List<BE_TipoOperacion> lstTipoOper = BL_TipoOperacion.ListarTiposOperacionesSalidas();
+            ddlTipoSalida.DataSource = lstTipoOper;
+            ddlTipoSalida.DataValueField = "codTipoOperacion";
+            ddlTipoSalida.DataTextField = "dscTipoOperacion";
+            ddlTipoSalida.DataBind();
+            ddlTipoSalida.Items.Insert(0, new ListItem("--Seleccione--", String.Empty));
         }
 
         private void ListarTiendas()

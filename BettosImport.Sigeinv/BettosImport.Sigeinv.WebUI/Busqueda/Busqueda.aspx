@@ -20,8 +20,8 @@
     <script src="<%=BettosImport.Sigeinv.Common.WebUtil.AbsoluteWebRoot%>js/jquery.blockUI.js" type="text/javascript"></script>
 
     <script type="text/javascript">
-        function retornarValor(busqueda, codigo, descripcion) {
-            parent.cargarItem(busqueda, codigo, descripcion);
+        function retornarValor(codigo, descripcion, marca, categoria, subcategoria) {
+            parent.cargarItem(codigo, descripcion, marca, categoria, subcategoria);
             return false;
         }
     </script>

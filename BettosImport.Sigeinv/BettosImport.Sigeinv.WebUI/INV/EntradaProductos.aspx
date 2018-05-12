@@ -4,6 +4,16 @@
         function Busqueda() {
            bettosimport.util.openModal('modalBusqueda', 'frameBusqueda', '<%=BettosImport.Sigeinv.Common.WebUtil.AbsoluteWebRoot%>Busqueda/Busqueda.aspx', 'Búsqueda de Productos');
         }
+
+         function cargarDatosProducto(codigo, descripcion, marca, categoria, subcategoria) {
+             $("#<%= hfCodProducto.ClientID %>").val(codigo);
+             $("#<%= txtDescProducto.ClientID %>").val(descripcion);
+             $("#<%= txtMarca.ClientID %>").val(marca);
+             $("#<%= txtCategoria.ClientID %>").val(categoria);
+             $("#<%= txtSubCategoria.ClientID %>").val(subcategoria);
+
+             $("#modalBusqueda").dialog("close");
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">

@@ -28,7 +28,7 @@ namespace BettosImport.Sigeinv.BusinessLogic.INV
             return DA_Producto.GetProducto(codProducto);
 
         }
-        
+
         public static bool ModificarProducto(BE_Producto objProducto)
         {
             return DA_Producto.ModificarProducto(objProducto);
@@ -37,6 +37,10 @@ namespace BettosImport.Sigeinv.BusinessLogic.INV
         public static bool EliminarProducto(string codProducto)
         {
             return DA_Producto.EliminarProducto(codProducto);
+        }
+
+        public static List<BE_Producto> ListarProductosActivos(string dscModelo, string dscProducto, string dscTodos){
+            return DA_Producto.ListarProductosActivos(dscModelo,dscProducto,dscTodos);
         }
     }
 }

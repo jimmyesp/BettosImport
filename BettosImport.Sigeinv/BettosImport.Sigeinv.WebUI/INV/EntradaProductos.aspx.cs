@@ -24,6 +24,12 @@ namespace BettosImport.Sigeinv.WebUI.INV
                 ListarTiposDocumentos();
                 ListarProveedores();
                 ListarTiposOperaciones();
+
+                TxtFecEmision.Text = DateTime.Today.ToString(Constantes.FORMAT_YYYY_MM_DD);
+                DateTime fecha = Convert.ToDateTime(TxtFecEmision.Text);
+                string anio = fecha.Year.ToString();
+                string periodo = fecha.Month.ToString("00");
+
             }
         }
 
@@ -74,12 +80,21 @@ namespace BettosImport.Sigeinv.WebUI.INV
 
         protected void ddlTipoEntrada_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ddlProveedor.SelectedIndex = 0;
+            ddlTiendaOrigen.SelectedIndex = 0;
+            if (ddlTipoEntrada.SelectedIndex == 0)
+            {
+                ddlProveedor.Enabled = false;
+                ddlTiendaOrigen.Enabled = false;
+               
+                return;
+            }
+
             BE_TipoOperacion objTipoOperacion = BL_TipoOperacion.GetTipoOperacion(ddlTipoEntrada.SelectedValue);
 
             if (objTipoOperacion != null)
             {
-                ddlProveedor.SelectedIndex = 0;
-                ddlTiendaOrigen.SelectedIndex = 0;
+                
                 if (objTipoOperacion.indProveedor == Constantes.ESTADO_INDPROVEEDOR)
                 {
                     ddlProveedor.Enabled = true;
@@ -90,10 +105,9 @@ namespace BettosImport.Sigeinv.WebUI.INV
                     ddlTiendaOrigen.Enabled = true;
                     ddlProveedor.Enabled = false;
                 }
-
+       
             }
 
-            
         }
     }
 }

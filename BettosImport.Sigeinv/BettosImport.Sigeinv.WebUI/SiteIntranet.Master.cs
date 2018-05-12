@@ -15,8 +15,19 @@ namespace BettosImport.Sigeinv.WebUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BE_Usuario objSesionLogin = (BE_Usuario)Context.Session[Constantes.USUARIO_SESION];
+
+            if (objSesionLogin == null)
+            {
+                Response.Redirect(WebUtil.AbsoluteWebRoot + "Login.aspx");
+            }
+
             if (!(Page.IsPostBack))
             {
+                lblUsuario.InnerText = objSesionLogin.codUsuario;
+                lblNombreUsuario.InnerText = objSesionLogin.dscUsuario;
+                lblRolUsuario.InnerText = objSesionLogin.dscRol;
+
                 CargarMenu();
             }
         }
@@ -56,6 +67,15 @@ namespace BettosImport.Sigeinv.WebUI
                 strMenu.Append("</ul>");
             }
             divmenu.InnerHtml = strMenu.ToString();
+        }
+
+        protected void lbCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Clear();
+            Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+            Response.AddHeader("Cache-Control", "no-cache");
+            Response.Redirect(WebUtil.AbsoluteWebRoot + "Login.aspx");
         }
     }
 

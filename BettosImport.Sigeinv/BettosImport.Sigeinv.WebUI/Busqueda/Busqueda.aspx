@@ -20,14 +20,18 @@
     <script src="<%=BettosImport.Sigeinv.Common.WebUtil.AbsoluteWebRoot%>js/jquery.blockUI.js" type="text/javascript"></script>
 
     <script type="text/javascript">
-        function retornarValor(codigo, descripcion, marca, categoria, subcategoria) {
-            parent.cargarItem(codigo, descripcion, marca, categoria, subcategoria);
+        function retornarDatosProducto(codigo, descripcion, marca, categoria, subcategoria) {
+            parent.cargarDatosProducto(codigo, descripcion, marca, categoria, subcategoria);
             return false;
         }
     </script>
 
     <style type="text/css">
-       .table {font-size: 11px }                
+       .table {font-size: 11px }
+       #gvBusqueda >tbody>tr>td{
+          height:20px;
+          padding:5px;
+        }              
     </style>
 </head>
 <body>
@@ -37,14 +41,19 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="row">
-                        <div class="col-xs-3">
-                            <input type="text" class="form-control input-sm" id="txtCodigo" placeholder="Codigo" />
+                        <div class="col-xs-3">     
+                             <asp:DropDownList ID="ddlBuscarPor" runat="server" CssClass="form-control input-sm">
+                                <asp:ListItem Value="TODOS">--Todos--</asp:ListItem>
+                                <asp:ListItem Value="dscModelo">Modelo</asp:ListItem>
+                                <asp:ListItem Value="dscProducto">Descripcion</asp:ListItem>
+                             </asp:DropDownList> 
                         </div>
                         <div class="col-xs-6">
-                            <input type="text" class="form-control input-sm" id="txtDescripcion" placeholder="Descripcion"/>
+                            
+                            <asp:TextBox ID="txtValor" CssClass="form-control input-sm" runat="server"></asp:TextBox> 
                         </div>
                         <div class="col-xs-2">
-                            <button class="btn btn-info btn-sm" type="button"><span class="glyphicon glyphicon-arrow-right"></span> Buscar</button>
+                            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-info btn-sm" Enabled="true" OnClick="btnBuscar_Click"/>
                         </div>
                     </div>
             </div>
@@ -55,10 +64,10 @@
                     <ContentTemplate>
                         <asp:GridView runat="server" ID="gvBusqueda" AutoGenerateColumns="False"
                                                 EmptyDataText="No se encontraron registros." 
-                                                CssClass="table table-bordered table-striped" AllowPaging="True" PageSize="7">
+                                                CssClass="table table-bordered table-striped table-hover" AllowPaging="True" PageSize="7" OnPageIndexChanging="gvBusqueda_PageIndexChanging" OnRowDataBound="gvBusqueda_RowDataBound">
                                             <Columns>
-                                                <asp:BoundField DataField="codigo" HeaderText="Codigo" ItemStyle-HorizontalAlign="Left" />
-                                                <asp:BoundField DataField="descripcion" HeaderText="Descripcion" ItemStyle-HorizontalAlign="Left" />
+                                                <asp:BoundField DataField="dscModelo" HeaderText="Modelo" ItemStyle-HorizontalAlign="Left" />
+                                                <asp:BoundField DataField="dscProducto" HeaderText="Descripcion" ItemStyle-HorizontalAlign="Left" />
                                                 <asp:TemplateField>
                                                     <ItemTemplate>
                                                         <asp:Button ID="btnSeleccionar" runat="server" Text="Seleccionar" CssClass="btn btn-link btn-xs"></asp:Button>

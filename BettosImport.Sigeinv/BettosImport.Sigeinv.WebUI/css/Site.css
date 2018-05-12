@@ -163,3 +163,22 @@
     background-color: #eeeeee;
     border-color: #dddddd;
 }
+
+.navbar-login
+{
+    width: 190px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 60px;
+}

@@ -301,7 +301,93 @@ namespace BettosImport.Sigeinv.DataAccess.INV
             return resultado;
         }
 
+        public static List<BE_Producto> ListarProductosActivos(string dscModelo,string dscProducto, string dscTodos)
+        {
+            try
+            {
+                using (MySqlConnection cn = new MySqlConnection(cnMySql()))
+                {
+                    cn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("SP_Inv_Producto_ListarActivos", cn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.Add("_dscModelo", MySqlDbType.VarChar);
+                        cmd.Parameters.Add("_dscProducto", MySqlDbType.VarChar);
+                        cmd.Parameters.Add("_Todos", MySqlDbType.VarChar);
 
+                        if (string.IsNullOrEmpty(dscTodos))
+                        {
+                            cmd.Parameters["_Todos"].Value = DBNull.Value;
+                        }
+                        else
+                        {
+                            cmd.Parameters["_Todos"].Value = dscTodos;
+                        }
+
+                        if (string.IsNullOrEmpty(dscModelo))
+                        {
+                            cmd.Parameters["_dscModelo"].Value = DBNull.Value;
+                        }
+                        else
+                        {
+                            cmd.Parameters["_dscModelo"].Value = dscModelo;
+                        }
+
+                        if (string.IsNullOrEmpty(dscProducto))
+                        {
+                            cmd.Parameters["_dscProducto"].Value = DBNull.Value;
+                        }
+                        else
+                        {
+                            cmd.Parameters["_dscProducto"].Value = dscProducto;
+                        }
+
+
+
+                        using (MySqlDataReader lector = cmd.ExecuteReader())
+                        {
+                            List<BE_Producto> lstProducto = new List<BE_Producto>();
+                            BE_Producto objProducto;
+                            while (lector.Read())
+                            {
+
+                                objProducto = new BE_Producto();
+
+                                objProducto.id = Convert.ToInt64(lector["id"]);
+                                objProducto.codProducto = Convert.ToString(lector["codProducto"]);
+                                objProducto.codMarca = Convert.ToString(lector["codMarca"]);
+                                objProducto.dscMarca = Convert.ToString(lector["dscMarca"]);
+                                objProducto.codCategoria = Convert.ToString(lector["codCategoria"]);
+                                objProducto.dscCategoria = Convert.ToString(lector["dscCategoria"]);
+                                objProducto.codSubCategoria = Convert.ToString(lector["codSubCategoria"]);
+                                objProducto.dscSubCategoria = Convert.ToString(lector["dscSubCategoria"]);
+                                objProducto.dscProducto = Convert.ToString(lector["dscProducto"]);
+                                objProducto.dscModelo = Convert.ToString(lector["dscModelo"]);
+                                objProducto.dscSerie = Convert.ToString(lector["dscSerie"]);
+                                objProducto.dscColor = Convert.ToString(lector["dscColor"]);
+                                objProducto.dscUsuCreacion = Convert.ToString(lector["dscUsuCreacion"]);
+                                objProducto.fecCreacion = Convert.ToDateTime(lector["fecCreacion"]);
+                                objProducto.dscUsuModificacion = Convert.ToString(lector["dscUsuModificacion"]);
+                                objProducto.fecModificacion = Convert.ToDateTime(lector["fecModificacion"]);
+                                objProducto.dscEstado = Convert.ToString(lector["dscEstado"]);
+
+                                lstProducto.Add(objProducto);
+                            }
+
+                            return lstProducto;
+
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
 
 
 

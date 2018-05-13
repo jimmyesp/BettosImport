@@ -22,7 +22,7 @@
                             <div class="input-group"> 
                                 <asp:TextBox ID="txtDscModelo" CssClass="form-control" placeholder="Modelo" runat="server" TabIndex="1"></asp:TextBox>
                                 <span class="input-group-btn">
-                                   <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-info" Text="Buscar"  TabIndex="2" />
+                                   <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-info" Text="Buscar"  TabIndex="2" OnClick="btnBuscar_Click" />
                                </span>
                             </div>
                         </div>
@@ -42,8 +42,9 @@
                             <asp:BoundField DataField="dscCategoria" HeaderText="Categoría" />
                             <asp:BoundField DataField="dscSubCategoria" HeaderText="SubCategoría" />
                             <asp:BoundField DataField="dscMarca" HeaderText="Marca" />
+                            <asp:BoundField DataField="dscModelo" HeaderText="Modelo" /> 
                             <asp:BoundField DataField="dscProveedor" HeaderText="Proveedor" />                 
-                            <asp:BoundField DataField="dscTiendaOrigen" HeaderText="Destino" />
+                            <asp:BoundField DataField="dscTiendaOrigen" HeaderText="Origen" />
                             <asp:BoundField DataField="numCantidad" HeaderText="Cantidad" />
                             <asp:BoundField DataField="fecEmision" HeaderText="Fecha Emisión" />
 

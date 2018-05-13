@@ -11,7 +11,7 @@ namespace BettosImport.Sigeinv.DataAccess.INV
 {
     public class DA_Movimiento : DA_BaseClass
     {
-        public static List<BE_Movimiento> ListarSalidaProductos(string codTienda)
+        public static List<BE_Movimiento> ListarSalidaProductos(string codTienda, string dscModelo)
         {
             try
             {
@@ -22,6 +22,7 @@ namespace BettosImport.Sigeinv.DataAccess.INV
                     {
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.Parameters.Add("_codTienda", MySqlDbType.VarChar).Value = codTienda;
+                        cmd.Parameters.Add("_dscModelo", MySqlDbType.VarChar).Value = dscModelo;
 
                         using (MySqlDataReader lector = cmd.ExecuteReader())
                         {
@@ -61,7 +62,7 @@ namespace BettosImport.Sigeinv.DataAccess.INV
 
 
 
-        public static List<BE_Movimiento> ListarEntradaProductos(string codTienda)
+        public static List<BE_Movimiento> ListarEntradaProductos(string codTienda, string dscModelo)
         {
             try
             {
@@ -72,6 +73,7 @@ namespace BettosImport.Sigeinv.DataAccess.INV
                     {
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.Parameters.Add("_codTienda", MySqlDbType.VarChar).Value = codTienda;
+                        cmd.Parameters.Add("_dscModelo", MySqlDbType.VarChar).Value = dscModelo;
 
                         using (MySqlDataReader lector = cmd.ExecuteReader())
                         {

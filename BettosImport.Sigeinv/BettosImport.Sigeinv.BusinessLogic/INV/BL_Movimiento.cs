@@ -10,14 +10,14 @@ namespace BettosImport.Sigeinv.BusinessLogic.INV
 {
     public class BL_Movimiento
     {
-        public static List<BE_Movimiento> ListarSalidaProductos(string codTienda)
+        public static List<BE_Movimiento> ListarSalidaProductos(string codTienda, string dscModelo)
         {
-            return DA_Movimiento.ListarSalidaProductos(codTienda);
+            return DA_Movimiento.ListarSalidaProductos(codTienda, dscModelo);
         }
 
-        public static List<BE_Movimiento> ListarEntradaProductos(string codTienda)
+        public static List<BE_Movimiento> ListarEntradaProductos(string codTienda, string dscModelo)
         {
-            return DA_Movimiento.ListarEntradaProductos(codTienda);
+            return DA_Movimiento.ListarEntradaProductos(codTienda, dscModelo);
         }
 
         public static string GenerarIdMovimiento(string codTipoOperacion)

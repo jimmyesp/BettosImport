@@ -59,15 +59,15 @@
                     <div class="row">
                        <div class="col-xs-4">
                             <label>Marca</label>
-                            <asp:TextBox ID="txtMarca" CssClass="form-control" placeholder="Marca" runat="server" readonly="true" MaxLength="50"></asp:TextBox>                       
+                            <asp:TextBox ID="txtMarca" CssClass="form-control" placeholder="Marca" runat="server" readonly="true" MaxLength="100"></asp:TextBox>                       
                        </div>
                        <div class="col-xs-4">
                             <label>Categoria</label>
-                            <asp:TextBox ID="txtCategoria" CssClass="form-control" placeholder="Categoria" runat="server" readonly="true" MaxLength="50"></asp:TextBox>                       
+                            <asp:TextBox ID="txtCategoria" CssClass="form-control" placeholder="Categoria" runat="server" readonly="true" MaxLength="100"></asp:TextBox>                       
                        </div>
                        <div class="col-xs-4">
                             <label>SubCategoria</label>
-                            <asp:TextBox ID="txtSubCategoria" CssClass="form-control" placeholder="SubCategoria" runat="server" readonly="true" MaxLength="50"></asp:TextBox>                       
+                            <asp:TextBox ID="txtSubCategoria" CssClass="form-control" placeholder="SubCategoria" runat="server" readonly="true" MaxLength="100"></asp:TextBox>                       
                         </div>
                     </div> 
                     <br />

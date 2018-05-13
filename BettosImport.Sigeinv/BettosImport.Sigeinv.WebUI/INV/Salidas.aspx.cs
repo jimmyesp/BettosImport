@@ -27,7 +27,7 @@ namespace BettosImport.Sigeinv.WebUI.INV
         {
             BE_Usuario objSesionLogin = (BE_Usuario)Context.Session[Constantes.USUARIO_SESION];
             BE_UsuarioTienda objUsuTienda = BL_UsuarioTienda.GetUsuarioTienda(objSesionLogin.codUsuario);
-            List<BE_Movimiento> lstSalidas = BL_Movimiento.ListarSalidaProductos(objUsuTienda.codTienda);
+            List<BE_Movimiento> lstSalidas = BL_Movimiento.ListarSalidaProductos(objUsuTienda.codTienda, txtDscModelo.Text);
             gvListado.DataSource = lstSalidas;
             gvListado.DataBind();
         }
@@ -35,6 +35,11 @@ namespace BettosImport.Sigeinv.WebUI.INV
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Response.Redirect("SalidaProductos.aspx?Accion=" + Constantes.ACCION_NUEVO);
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ListarMovimientoSalidas();
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="ADM\DA_UsuarioTienda.cs" />
     <Compile Include="DA_BaseClass.cs" />
     <Compile Include="INV\DA_Categoria.cs" />
+    <Compile Include="INV\DA_DetalleProductoTienda.cs" />
     <Compile Include="INV\DA_Marca.cs" />
     <Compile Include="INV\DA_Movimiento.cs" />
     <Compile Include="INV\DA_Producto.cs" />
@@ -62,6 +63,10 @@
     <ProjectReference Include="..\BettosImport.Sigeinv.BusinessEntities\BettosImport.Sigeinv.BusinessEntities.csproj">
       <Project>{8869faa7-8f39-4b71-9bf1-071835505d23}</Project>
       <Name>BettosImport.Sigeinv.BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BettosImport.Sigeinv.Common\BettosImport.Sigeinv.Common.csproj">
+      <Project>{3bbfc182-e4df-498b-a0d6-79f5cf7fd98f}</Project>
+      <Name>BettosImport.Sigeinv.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

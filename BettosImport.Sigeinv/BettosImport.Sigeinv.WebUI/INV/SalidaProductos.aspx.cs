@@ -61,5 +61,60 @@ namespace BettosImport.Sigeinv.WebUI.INV
         {
             Response.Redirect("Salidas.aspx");
         }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            BE_Usuario objSesionLogin = (BE_Usuario)Context.Session[Constantes.USUARIO_SESION];
+            BE_UsuarioTienda objUsuTienda = BL_UsuarioTienda.GetUsuarioTienda(objSesionLogin.codUsuario);
+
+            try
+            {
+                BE_Movimiento objMovimiento = new BE_Movimiento();
+
+                objMovimiento.codTienda = objUsuTienda.codTienda;
+                objMovimiento.codTipoOperacion = ddlTipoSalida.SelectedValue;
+                objMovimiento.codProducto = hfCodProducto.Value;
+                objMovimiento.fecEmision = Convert.ToDateTime(TxtFecEmision.Text);
+                objMovimiento.dscAnio = objMovimiento.fecEmision.Year.ToString();
+                objMovimiento.dscPeriodo = objMovimiento.dscAnio + objMovimiento.fecEmision.Month.ToString("00");
+                objMovimiento.codTiendaOrigen = objUsuTienda.codTienda;
+                objMovimiento.codTiendaDestino = ddlTiendaDestino.SelectedValue;
+                objMovimiento.numCantidad = Convert.ToInt16(txtCantidad.Text);
+                objMovimiento.codTipoDocumento = ddlTipoDocumento.SelectedValue;
+                objMovimiento.dscNumTipoDoc = txtNumDoc.Text.Trim();
+                objMovimiento.dscComentario = txtComentario.Text.Trim();
+                objMovimiento.dscUsuCreacion = objSesionLogin.codUsuario;
+                objMovimiento.dscUsuModificacion = objSesionLogin.codUsuario;
+
+
+                if (hfAccion.Value == Constantes.ACCION_NUEVO)
+                {
+                    objMovimiento.dscNumDocOper = BL_Movimiento.GenerarIdMovimiento(objMovimiento.codTipoOperacion);
+
+  
+
+                    if (BL_Movimiento.InsertarSalidaProducto(objMovimiento) == true)
+                    {
+                        BL_TipoOperacion.ActualizarCorrelativo(objMovimiento.codTipoOperacion);
+                        BL_DetalleProductoTienda.ActualizarCantProducSalida(objMovimiento.codProducto, objMovimiento.codTienda, objMovimiento.numCantidad);
+                        string script = "$(function(){bettosimport.util.alertURL('" + Constantes.SUCCESS_DEFAULT_MESSAGE + "','" + WebUtil.AbsoluteWebRoot + "INV/Salidas.aspx" + "')})";
+                        ScriptManager.RegisterStartupScript(this, Page.GetType(), "", script, true);
+
+                    }
+                    else
+                    {
+                        string script = "$(function(){bettosimport.util.showMessage('" + Constantes.ERROR_DEFAULT_MESSAGE + "','" + Constantes.ALERT_DANGER + "')})";
+                        ScriptManager.RegisterStartupScript(this, Page.GetType(), "", script, true);
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                string script = "$(function(){bettosimport.util.showMessage('" + Constantes.ERROR_DEFAULT_MESSAGE + "','" + Constantes.ALERT_DANGER + "')})";
+                ScriptManager.RegisterStartupScript(this, Page.GetType(), "", script, true);
+            }
+        }
     }
 }

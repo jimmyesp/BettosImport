@@ -24,5 +24,10 @@ namespace BettosImport.Sigeinv.BusinessLogic.INV
         {
             return DA_TipoOperacion.GetTipoOperacion(codTipoOperacion);
         }
+
+        public static bool ActualizarCorrelativo(string codTipoOperacion)
+        {
+            return DA_TipoOperacion.ActualizarCorrelativo(codTipoOperacion);
+        }
     }
 }

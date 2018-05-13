@@ -114,7 +114,7 @@
 
                     <div class="pull-right">
                         <asp:HiddenField ID="hfAccion" runat="server" />
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-info" Enabled="true"/>
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-info" Enabled="true" OnClick="btnGuardar_Click"/>
                     </div>                            
                 </div>           
             </div>  

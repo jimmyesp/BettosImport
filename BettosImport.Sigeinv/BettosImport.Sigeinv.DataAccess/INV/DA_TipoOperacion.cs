@@ -135,5 +135,50 @@ namespace BettosImport.Sigeinv.DataAccess.INV
                 throw ex;
             }
         }
+
+        public static bool ActualizarCorrelativo(string codTipoOperacion)
+        {
+            bool resultado = false;
+            try
+            {
+                using (MySqlConnection cn = new MySqlConnection(cnMySql()))
+                {
+                    cn.Open();
+                    using (MySqlTransaction trx = cn.BeginTransaction())
+                    {
+                        try
+                        {
+                            using (MySqlCommand cmd = new MySqlCommand("SP_Inv_TipoOperacion_Actualizar", cn))
+                            {
+                                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                                cmd.Transaction = trx;
+                                cmd.Parameters.Add("_codTipoOperacion", MySqlDbType.VarChar, 3).Value = codTipoOperacion;
+     
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            trx.Commit();
+                            resultado = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            trx.Rollback();
+                            resultado = false;
+                            throw ex;
+                        }
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                resultado = false;
+                throw ex;
+            }
+
+            return resultado;
+        }
     }
 }

@@ -29,11 +29,14 @@ namespace BettosImport.Sigeinv.Common
         public const string ACCION_EDITAR = "E";
         public const string ACCION_ELIMINAR = "D";
 
+        public const string ACCION_DETALLE = "D";
+
         public const string ESTADO_ACTIVO = "A";
         public const string ESTADO_INACTIVO = "I";
 
 
         public const string ESTADO_INDPROVEEDOR = "1";
+        public const string ESTADO_SALIDATIENDA = "SAT";
 
     }
 }

@@ -52,7 +52,7 @@
 
 
                     <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-xs-8">
                             <label>Producto</label>
                             <div class="input-group"> 
                                

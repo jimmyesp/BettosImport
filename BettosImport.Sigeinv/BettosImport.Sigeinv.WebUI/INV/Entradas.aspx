@@ -32,7 +32,7 @@
                         AutoGenerateColumns="False" 
                         Width="100%" CssClass ="table table-responsive" Font-Size="Small"
                         AllowPaging="True"
-                        EmptyDataText="No se encontraron registros">
+                        EmptyDataText="No se encontraron registros" OnPageIndexChanging="gvListado_PageIndexChanging">
                         <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                         <EmptyDataRowStyle forecolor="Red" CssClass="table table-bordered" />
                         <EditRowStyle BackColor="#ffffcc" />
@@ -42,9 +42,8 @@
                             <asp:BoundField DataField="dscCategoria" HeaderText="Categoría" />
                             <asp:BoundField DataField="dscSubCategoria" HeaderText="SubCategoría" />
                             <asp:BoundField DataField="dscMarca" HeaderText="Marca" />
-                            <asp:BoundField DataField="dscModelo" HeaderText="Modelo" /> 
-                            <asp:BoundField DataField="dscProveedor" HeaderText="Proveedor" />                 
-                            <asp:BoundField DataField="dscTiendaOrigen" HeaderText="Origen" />
+                            <asp:BoundField DataField="dscModelo" HeaderText="Modelo" />                
+                            <asp:BoundField DataField="dscTipoOperacion" HeaderText="Tipo Entrada" />
                             <asp:BoundField DataField="numCantidad" HeaderText="Cantidad" />
                             <asp:BoundField DataField="fecEmision" HeaderText="Fecha Emisión" />
 

@@ -106,5 +106,49 @@ namespace BettosImport.Sigeinv.DataAccess.INV
 
             return resultado;
         }
+
+
+        public static List<BE_DetalleProductoTienda> ListarDetalleProductos(string dscProducto)
+        {
+            try
+            {
+                using (MySqlConnection cn = new MySqlConnection(cnMySql()))
+                {
+                    cn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("SP_Inv_DetalleProductoTienda_Listar", cn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.Add("_dscProducto", MySqlDbType.VarChar).Value = dscProducto;
+
+                        using (MySqlDataReader lector = cmd.ExecuteReader())
+                        {
+                            List<BE_DetalleProductoTienda> lstDetalleProd = new List<BE_DetalleProductoTienda>();
+                            BE_DetalleProductoTienda objDetalleProducto;
+                            while (lector.Read())
+                            {
+
+                                objDetalleProducto = new BE_DetalleProductoTienda();
+                                objDetalleProducto.id = Convert.ToInt64(lector["id"]);
+                                objDetalleProducto.dscProducto = Convert.ToString(lector["dscProducto"]);
+                                objDetalleProducto.dscTienda = Convert.ToString(lector["dscTienda"]);
+                                objDetalleProducto.cntProducto = Convert.ToInt16(lector["cntProducto"]);
+
+                                lstDetalleProd.Add(objDetalleProducto);
+                            }
+
+                            return lstDetalleProd;
+
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }

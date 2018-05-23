@@ -77,7 +77,7 @@ namespace BettosImport.Sigeinv.WebUI.INV
         {
             ddlProveedor.SelectedIndex = 0;
             ddlTiendaOrigen.SelectedIndex = 0;
-            if (ddlTipoEntrada.SelectedIndex == 0)
+            if (ddlTipoEntrada.SelectedIndex == 0 || ddlTipoEntrada.SelectedIndex > 2)
             {
                 ddlProveedor.Enabled = false;
                 ddlTiendaOrigen.Enabled = false;

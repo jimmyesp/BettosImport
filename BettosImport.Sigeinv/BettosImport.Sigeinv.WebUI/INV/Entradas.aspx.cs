@@ -41,5 +41,11 @@ namespace BettosImport.Sigeinv.WebUI.INV
         {
             ListarMovimientoEntradas();
         }
+
+        protected void gvListado_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvListado.PageIndex = e.NewPageIndex;
+            ListarMovimientoEntradas();
+        }
     }
 }

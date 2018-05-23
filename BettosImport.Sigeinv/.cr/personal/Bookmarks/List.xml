@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root Type="DevExpress.CodeRush.Foundation.Markers.SolutionBookmarksContainer">
+  <Options Language="Neutral">
+    <Items>
+      <Item Id="{f06cf510-17ec-4a33-9506-0eef16882aaf}">
+        <Id>4</Id>
+        <File>BettosImport.Sigeinv\BettosImport.Sigeinv.WebUI\INV\EntradaProductos.aspx.cs</File>
+        <Line>79</Line>
+        <Character>85</Character>
+        <ViewportTop>69</ViewportTop>
+        <ViewportTopMax>174</ViewportTopMax>
+        <TopLine>69</TopLine>
+      </Item>
+    </Items>
+  </Options>
+</Root>

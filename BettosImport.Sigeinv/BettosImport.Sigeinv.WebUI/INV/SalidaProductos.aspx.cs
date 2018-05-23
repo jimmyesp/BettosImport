@@ -78,7 +78,16 @@ namespace BettosImport.Sigeinv.WebUI.INV
                 objMovimiento.dscAnio = objMovimiento.fecEmision.Year.ToString();
                 objMovimiento.dscPeriodo = objMovimiento.dscAnio + objMovimiento.fecEmision.Month.ToString("00");
                 objMovimiento.codTiendaOrigen = objUsuTienda.codTienda;
-                objMovimiento.codTiendaDestino = ddlTiendaDestino.SelectedValue;
+
+                if (objMovimiento.codTipoOperacion == "SAT")
+                {
+                    objMovimiento.codTiendaDestino = ddlTiendaDestino.SelectedValue; ;
+                }
+                else
+                {
+                    objMovimiento.codTiendaDestino = null;
+                }
+
                 objMovimiento.numCantidad = Convert.ToInt16(txtCantidad.Text);
                 objMovimiento.codTipoDocumento = ddlTipoDocumento.SelectedValue;
                 objMovimiento.dscNumTipoDoc = txtNumDoc.Text.Trim();
@@ -86,6 +95,7 @@ namespace BettosImport.Sigeinv.WebUI.INV
                 objMovimiento.dscUsuCreacion = objSesionLogin.codUsuario;
                 objMovimiento.dscUsuModificacion = objSesionLogin.codUsuario;
 
+              
 
                 if (hfAccion.Value == Constantes.ACCION_NUEVO)
                 {
@@ -114,6 +124,26 @@ namespace BettosImport.Sigeinv.WebUI.INV
 
                 string script = "$(function(){bettosimport.util.showMessage('" + Constantes.ERROR_DEFAULT_MESSAGE + "','" + Constantes.ALERT_DANGER + "')})";
                 ScriptManager.RegisterStartupScript(this, Page.GetType(), "", script, true);
+            }
+        }
+
+        protected void ddlTipoSalida_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddlTiendaDestino.SelectedIndex = 0;
+            if (ddlTipoSalida.SelectedIndex == 0)
+            {
+                ddlTiendaDestino.Enabled = false;
+
+                return;
+            }
+
+            if (ddlTipoSalida.SelectedValue == Constantes.ESTADO_SALIDATIENDA)
+            {
+                 ddlTiendaDestino.Enabled = true;
+            }
+            else
+            {
+                 ddlTiendaDestino.Enabled = false;
             }
         }
     }

@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace BettosImport.Sigeinv.WebUI {
+namespace BettosImport.Sigeinv.WebUI.INV {
     
     
-    public partial class MenuPrincipal {
+    public partial class DetalleSalida {
         
         /// <summary>
         /// Control ScriptManager1.
@@ -31,39 +31,30 @@ namespace BettosImport.Sigeinv.WebUI {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// Control txtDscProducto.
+        /// Control lbRegresar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDscProducto;
+        protected global::System.Web.UI.WebControls.LinkButton lbRegresar;
         
         /// <summary>
-        /// Control btnBuscar.
+        /// Control lblProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblProducto;
         
         /// <summary>
-        /// Control lblTotal.
+        /// Control lblTipoSalida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTotal;
-        
-        /// <summary>
-        /// Control gvListado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvListado;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTipoSalida;
     }
 }

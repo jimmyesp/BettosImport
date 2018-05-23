@@ -41,5 +41,27 @@ namespace BettosImport.Sigeinv.WebUI.INV
         {
             ListarMovimientoSalidas();
         }
+
+        protected void gvListado_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvListado.PageIndex = e.NewPageIndex;
+            ListarMovimientoSalidas();
+        }
+
+        protected void gvListado_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index;
+            string id = string.Empty;
+            switch (e.CommandName)
+            {
+                case "Detail":
+                    index = Convert.ToInt32(e.CommandArgument);
+
+                    id = this.gvListado.DataKeys[index][0].ToString();
+                    Response.Redirect("DetalleSalida.aspx?Accion=" + Constantes.ACCION_DETALLE + "&Id=" + id);
+                    break;
+
+            }
+        }
     }
 }

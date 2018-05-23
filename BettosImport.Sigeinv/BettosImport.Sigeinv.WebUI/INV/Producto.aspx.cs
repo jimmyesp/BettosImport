@@ -75,6 +75,7 @@ namespace BettosImport.Sigeinv.WebUI.INV
             ddlCategoria.DataTextField = "dscCategoria";
             ddlCategoria.DataBind();
             ddlCategoria.Items.Insert(0, new ListItem("--Seleccione--", String.Empty));
+           
         }
 
         private void ListarSubCategorias(string codCategoria)
@@ -85,6 +86,8 @@ namespace BettosImport.Sigeinv.WebUI.INV
             ddlSubCategoria.DataTextField = "dscSubCategoria";
             ddlSubCategoria.DataBind();
             ddlSubCategoria.Items.Insert(0, new ListItem("--Seleccione--", String.Empty));
+
+            ddlSubCategoria.Items.Add(new ListItem("Otros", "-1"));
         }
 
         protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)

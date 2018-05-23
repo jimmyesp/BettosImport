@@ -13,7 +13,9 @@ namespace BettosImport.Sigeinv.BusinessEntities.INV
         public string dscPeriodo { get; set; }
         public string codTienda { get; set; }
         public string codTipoOperacion { get; set; }
+        public string dscTipoOperacion { get; set; }
         public string codProducto { get; set; }
+        public string dscProducto { get; set; }
         public string dscMarca { get; set; }
         public string dscCategoria { get; set; }
         public string dscSubCategoria { get; set; }

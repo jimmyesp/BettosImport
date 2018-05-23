@@ -35,13 +35,13 @@
                    <div class="row">
                         <div class="col-xs-4">
                             <label>Tipo Salida</label>
-                              <asp:DropDownList ID="ddlTipoSalida" runat="server" CssClass="form-control"></asp:DropDownList> 
+                              <asp:DropDownList ID="ddlTipoSalida" AutoPostBack="true" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlTipoSalida_SelectedIndexChanged"></asp:DropDownList> 
                         </div>
                     </div> 
                     <br />
 
                     <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-xs-8">
                             <label>Producto</label>
                             <div class="input-group"> 
                                
@@ -75,7 +75,7 @@
                     <div class="row">
                         <div class="col-xs-4">
                             <label>Tienda Destino</label>
-                              <asp:DropDownList ID="ddlTiendaDestino" runat="server" CssClass="form-control"></asp:DropDownList> 
+                              <asp:DropDownList ID="ddlTiendaDestino"  runat="server" CssClass="form-control" Enabled="false"></asp:DropDownList> 
                         </div>
                         <div class="col-xs-4">
                             <label>Cantidad</label>

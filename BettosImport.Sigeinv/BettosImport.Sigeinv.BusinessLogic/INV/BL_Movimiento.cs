@@ -34,5 +34,10 @@ namespace BettosImport.Sigeinv.BusinessLogic.INV
         {
             return DA_Movimiento.InsertarEntradaProducto(objMovimiento);
         }
+
+        public static BE_Movimiento GetSalidaProducto(int id)
+        {
+            return DA_Movimiento.GetSalidaProducto(id);
+        }
     }
 }

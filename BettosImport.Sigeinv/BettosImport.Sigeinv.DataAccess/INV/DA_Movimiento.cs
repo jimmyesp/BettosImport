@@ -37,7 +37,7 @@ namespace BettosImport.Sigeinv.DataAccess.INV
                                 objMovimiento.dscSubCategoria = Convert.ToString(lector["dscSubCategoria"]);
                                 objMovimiento.dscMarca = Convert.ToString(lector["dscMarca"]);
                                 objMovimiento.dscModelo = Convert.ToString(lector["dscModelo"]);
-                                objMovimiento.dscTiendaDestino = Convert.ToString(lector["Tienda Destino"]);
+                                objMovimiento.dscTipoOperacion = Convert.ToString(lector["dscTipoOperacion"]);
                                 objMovimiento.numCantidad = Convert.ToInt16(lector["numCantidad"]);
                                 objMovimiento.fecEmision = Convert.ToDateTime(lector["fecEmision"]);
 
@@ -88,8 +88,7 @@ namespace BettosImport.Sigeinv.DataAccess.INV
                                 objMovimiento.dscSubCategoria = Convert.ToString(lector["dscSubCategoria"]);
                                 objMovimiento.dscMarca = Convert.ToString(lector["dscMarca"]);
                                 objMovimiento.dscModelo = Convert.ToString(lector["dscModelo"]);
-                                objMovimiento.dscProveedor = Convert.ToString(lector["dscProveedor"]);
-                                objMovimiento.dscTiendaOrigen = Convert.ToString(lector["Tienda Origen"]);
+                                objMovimiento.dscTipoOperacion = Convert.ToString(lector["dscTipoOperacion"]);
                                 objMovimiento.numCantidad = Convert.ToInt16(lector["numCantidad"]);
                                 objMovimiento.fecEmision = Convert.ToDateTime(lector["fecEmision"]);
 
@@ -262,6 +261,48 @@ namespace BettosImport.Sigeinv.DataAccess.INV
             }
 
             return resultado;
+        }
+
+
+        public static BE_Movimiento GetSalidaProducto(int id)
+        {
+            try
+            {
+                using (MySqlConnection cn = new MySqlConnection(cnMySql()))
+                {
+                    cn.Open();
+                    using (MySqlTransaction trx = cn.BeginTransaction())
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand("SP_Inv_Movimiento_GetSalida", cn))
+                        {
+                            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                            cmd.Parameters.Add("_id", MySqlDbType.VarChar).Value = id;
+
+                            using (MySqlDataReader lector = cmd.ExecuteReader())
+                            {
+                                BE_Movimiento objMovimiento = null;
+                                while (lector.Read())
+                                {
+
+                                    objMovimiento = new BE_Movimiento();
+
+                                    objMovimiento.dscProducto = Convert.ToString(lector["dscProducto"]);
+                                    objMovimiento.dscTipoOperacion = Convert.ToString(lector["dscTipoOperacion"]);
+                                }
+
+                                return objMovimiento;
+
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

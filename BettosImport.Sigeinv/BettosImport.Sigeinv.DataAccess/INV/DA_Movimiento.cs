@@ -288,6 +288,61 @@ namespace BettosImport.Sigeinv.DataAccess.INV
 
                                     objMovimiento.dscProducto = Convert.ToString(lector["dscProducto"]);
                                     objMovimiento.dscTipoOperacion = Convert.ToString(lector["dscTipoOperacion"]);
+                                    objMovimiento.dscTiendaDestino = Convert.ToString(lector["Tienda Destino"]);
+                                    objMovimiento.numCantidad = Convert.ToInt16(lector["numCantidad"]);
+                                    objMovimiento.dscTipoDocumento = Convert.ToString(lector["dscTipoDocumento"]);
+                                    objMovimiento.dscNumTipoDoc = Convert.ToString(lector["dscNumTipoDoc"]);
+                                    objMovimiento.fecEmision = Convert.ToDateTime(lector["fecEmision"]);
+                                    objMovimiento.dscComentario = Convert.ToString(lector["dscComentario"]);
+                                }
+
+                                return objMovimiento;
+
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        public static BE_Movimiento GetEntradaProducto(int id)
+        {
+            try
+            {
+                using (MySqlConnection cn = new MySqlConnection(cnMySql()))
+                {
+                    cn.Open();
+                    using (MySqlTransaction trx = cn.BeginTransaction())
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand("SP_Inv_Movimiento_GetEntrada", cn))
+                        {
+                            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                            cmd.Parameters.Add("_id", MySqlDbType.VarChar).Value = id;
+
+                            using (MySqlDataReader lector = cmd.ExecuteReader())
+                            {
+                                BE_Movimiento objMovimiento = null;
+                                while (lector.Read())
+                                {
+
+                                    objMovimiento = new BE_Movimiento();
+
+                                    objMovimiento.dscProducto = Convert.ToString(lector["dscProducto"]);
+                                    objMovimiento.dscTipoOperacion = Convert.ToString(lector["dscTipoOperacion"]);
+                                    objMovimiento.dscTiendaOrigen = Convert.ToString(lector["Tienda Origen"]);
+                                    objMovimiento.dscProveedor = Convert.ToString(lector["dscProveedor"]);
+                                    objMovimiento.numCantidad = Convert.ToInt16(lector["numCantidad"]);
+                                    objMovimiento.dscTipoDocumento = Convert.ToString(lector["dscTipoDocumento"]);
+                                    objMovimiento.dscNumTipoDoc = Convert.ToString(lector["dscNumTipoDoc"]);
+                                    objMovimiento.fecEmision = Convert.ToDateTime(lector["fecEmision"]);
+                                    objMovimiento.dscComentario = Convert.ToString(lector["dscComentario"]);
                                 }
 
                                 return objMovimiento;

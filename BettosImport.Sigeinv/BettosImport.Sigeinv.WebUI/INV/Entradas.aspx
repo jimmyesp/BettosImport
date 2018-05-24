@@ -32,7 +32,8 @@
                         AutoGenerateColumns="False" 
                         Width="100%" CssClass ="table table-responsive" Font-Size="Small"
                         AllowPaging="True"
-                        EmptyDataText="No se encontraron registros" OnPageIndexChanging="gvListado_PageIndexChanging">
+                        DataKeyNames="id"
+                        EmptyDataText="No se encontraron registros" OnPageIndexChanging="gvListado_PageIndexChanging" OnRowCommand="gvListado_RowCommand">
                         <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                         <EmptyDataRowStyle forecolor="Red" CssClass="table table-bordered" />
                         <EditRowStyle BackColor="#ffffcc" />
@@ -48,16 +49,6 @@
                             <asp:BoundField DataField="fecEmision" HeaderText="Fecha Emisión" />
 
                             <asp:ButtonField ButtonType="Button" CommandName="Detail" Text="Ver Detalle" ControlStyle-CssClass="btn btn-sm btn-info" />
-                         <%--   <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:Button ID="btnEliminar" runat="server" 
-                                        CommandName="Delete" Text="Eliminar" CssClass="btn btn-sm btn-danger"
-                                        CommandArgument='<%# Eval("codProducto") %>'
-                                         OnClientClick="javascript: return bettosimport.util.confirmar('¿Está seguro de eliminar el registro?', this.name);"
-                                     />
-                                </ItemTemplate>
-                            </asp:TemplateField>--%>
-
                         </Columns>
 
                     </asp:GridView>     

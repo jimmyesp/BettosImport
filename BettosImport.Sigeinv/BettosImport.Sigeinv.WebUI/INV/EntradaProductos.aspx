@@ -101,7 +101,7 @@
 
                     <div class="row">      
                         <div class="col-xs-4">
-                            <label>Fecha Emision</label>
+                            <label>Fecha de Recepción</label>
                             <asp:TextBox ID="TxtFecEmision" textmode="Date" CssClass="form-control" runat="server"></asp:TextBox>                       
                         </div>     
                         <div class="col-xs-8">

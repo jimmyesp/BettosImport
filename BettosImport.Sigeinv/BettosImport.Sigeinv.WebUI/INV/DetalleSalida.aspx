@@ -18,16 +18,58 @@
               
                    <div class="row">
                          <div class="col-lg-4">
-                                <p class="text-danger"><b>Producto: </b><label id="lblProducto" runat="server" ></label> </p>
+                                <span class = "label label-danger"><b>Tipo Salida:</b></span>&nbsp
+                                <label class="text-info" id="lblTipoSalida" runat="server" ></label>
                          </div>
+
                          <div class="col-lg-4">
-                                <p class="text-danger"><b>Tipo Salida: </b><label id="lblTipoSalida" runat="server" ></label> </p>
+                                <span class = "label label-danger"><b>Destino:</b></span>&nbsp
+                                <label class="text-info" id="lblTiendaDestino" runat="server" ></label>
                          </div>
-                    </div> 
-                    <br />                        
-                </div>           
-            </div>
+
+                         <div class="col-lg-4">
             
+                                <span class = "label label-danger"><b>Producto:</b></span>&nbsp
+                                <label class="text-info" id="lblProducto" runat="server" ></label>
+                         </div>
+                    
+                   </div> 
+                   <br />     
+                    
+                   <div class="row">
+                         <div class="col-lg-4">
+                                <span class = "label label-danger"><b>Cantidad:</b></span>&nbsp
+                                <label class="text-info" id="lblCantidad" runat="server" ></label>
+                         </div>
+
+                         <div class="col-lg-4">
+                                <span class = "label label-danger"><b>Tipo de Documento:</b></span>&nbsp
+                                <label class="text-info" id="lblTipoDoc" runat="server" ></label>
+                         </div>
+
+                         <div class="col-lg-4">
+            
+                                <span class = "label label-danger"><b>Nº Documento:</b></span>&nbsp
+                                <label class="text-info" id="lblNumDoc" runat="server" ></label>
+                         </div>
+                    
+                   </div> 
+                   <br /> 
+                    
+                   <div class="row">
+                        <div class="col-lg-4">
+                                <span class = "label label-danger"><b>Fecha Emisión:</b></span>&nbsp
+                                <label class="text-info" id="lblFecEmision" runat="server" ></label>
+                        </div>
+
+                        <div class="col-lg-4">
+                                <span class = "label label-danger"><b>Comentario:</b></span>&nbsp
+                                <label class="text-info" id="lblComentario" runat="server" ></label>
+                        </div>          
+                   </div> 
+                   <br />                       
+                </div>           
+            </div>         
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

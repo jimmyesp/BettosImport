@@ -12,7 +12,7 @@ using BettosImport.Sigeinv.Common;
 
 namespace BettosImport.Sigeinv.WebUI.INV
 {
-    public partial class DetalleSalida : System.Web.UI.Page
+    public partial class DetalleEntrada : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,33 +20,42 @@ namespace BettosImport.Sigeinv.WebUI.INV
             {
 
                 string id = Request.QueryString["Id"].ToString();
-                MostrarDetalleSalida(id);
+                MostrarDetalleEntrada(id);
 
             }
         }
 
-        private void MostrarDetalleSalida(string id)
+        private void MostrarDetalleEntrada(string id)
         {
 
-            BE_Movimiento objMovimiento = BL_Movimiento.GetSalidaProducto(Convert.ToInt16(id));
+            BE_Movimiento objMovimiento = BL_Movimiento.GetEntradaProducto(Convert.ToInt16(id));
             if (objMovimiento != null)
             {
-                lblProducto.InnerText = objMovimiento.dscProducto;
-                lblTipoSalida.InnerText = objMovimiento.dscTipoOperacion;
+                lblTipoEntrada.InnerText = objMovimiento.dscTipoOperacion;
 
-                if(objMovimiento.dscTiendaDestino != "")
+                if (objMovimiento.dscTiendaOrigen != "")
                 {
-                    lblTiendaDestino.InnerText = objMovimiento.dscTiendaDestino;             
+                    lblTiendaOrigen.InnerText = objMovimiento.dscTiendaOrigen;
                 }
                 else
                 {
-                    lblTiendaDestino.InnerText = "No hay tienda destino.";
+                    lblTiendaOrigen.InnerText = "No hay tienda origen.";
                 }
 
+                if (objMovimiento.dscProveedor != "")
+                {
+                    lblProveedor.InnerText = objMovimiento.dscProveedor;
+                }
+                else
+                {
+                    lblProveedor.InnerText = "No hay proveedor.";
+                }
+
+                lblProducto.InnerText = objMovimiento.dscProducto;
                 lblCantidad.InnerText = Convert.ToString(objMovimiento.numCantidad);
                 lblTipoDoc.InnerText = objMovimiento.dscTipoDocumento;
-                
-                if(objMovimiento.dscNumTipoDoc != "")
+
+                if (objMovimiento.dscNumTipoDoc != "")
                 {
                     lblNumDoc.InnerText = objMovimiento.dscNumTipoDoc;
                 }
@@ -70,7 +79,7 @@ namespace BettosImport.Sigeinv.WebUI.INV
 
         protected void lbRegresar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Salidas.aspx");
+            Response.Redirect("Entradas.aspx");
         }
     }
 }

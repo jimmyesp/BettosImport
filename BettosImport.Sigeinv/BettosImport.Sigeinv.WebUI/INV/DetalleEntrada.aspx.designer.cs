@@ -10,7 +10,7 @@
 namespace BettosImport.Sigeinv.WebUI.INV {
     
     
-    public partial class DetalleSalida {
+    public partial class DetalleEntrada {
         
         /// <summary>
         /// Control ScriptManager1.
@@ -40,22 +40,31 @@ namespace BettosImport.Sigeinv.WebUI.INV {
         protected global::System.Web.UI.WebControls.LinkButton lbRegresar;
         
         /// <summary>
-        /// Control lblTipoSalida.
+        /// Control lblTipoEntrada.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTipoSalida;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTipoEntrada;
         
         /// <summary>
-        /// Control lblTiendaDestino.
+        /// Control lblTiendaOrigen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTiendaDestino;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTiendaOrigen;
+        
+        /// <summary>
+        /// Control lblProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblProveedor;
         
         /// <summary>
         /// Control lblProducto.

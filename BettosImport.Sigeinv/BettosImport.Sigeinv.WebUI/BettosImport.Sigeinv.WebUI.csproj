@@ -101,6 +101,7 @@
     <Content Include="img\bettos.png" />
     <Content Include="img\bettos2.jpeg" />
     <Content Include="img\bettos3.png" />
+    <Content Include="INV\DetalleEntrada.aspx" />
     <Content Include="INV\DetalleSalida.aspx" />
     <Content Include="INV\EntradaProductos.aspx" />
     <Content Include="INV\Entradas.aspx" />
@@ -206,6 +207,13 @@
     </Compile>
     <Compile Include="Busqueda\Busqueda.aspx.designer.cs">
       <DependentUpon>Busqueda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="INV\DetalleEntrada.aspx.cs">
+      <DependentUpon>DetalleEntrada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="INV\DetalleEntrada.aspx.designer.cs">
+      <DependentUpon>DetalleEntrada.aspx</DependentUpon>
     </Compile>
     <Compile Include="INV\DetalleSalida.aspx.cs">
       <DependentUpon>DetalleSalida.aspx</DependentUpon>

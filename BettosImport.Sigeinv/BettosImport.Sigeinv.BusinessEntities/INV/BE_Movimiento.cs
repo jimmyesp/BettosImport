@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace BettosImport.Sigeinv.BusinessEntities.INV
         public string dscProveedor { get; set; }
         public string codTiendaOrigen { get; set; }
         public string dscTiendaOrigen { get; set; }
-        public string codTiendaDestino { get; set; }
+        public string codTiendaDestino { get; set; }    
         public string dscTiendaDestino { get; set; }
         public int numCantidad { get; set; }
         public string codTipoDocumento { get; set; }

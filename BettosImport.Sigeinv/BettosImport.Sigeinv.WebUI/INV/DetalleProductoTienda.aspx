@@ -1,9 +1,12 @@
-﻿
-<%@ Page Title="" Language="C#" MasterPageFile="~/SiteIntranet.Master" AutoEventWireup="true" CodeBehind="MenuPrincipal.aspx.cs" Inherits="BettosImport.Sigeinv.WebUI.MenuPrincipal" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteIntranet.Master" AutoEventWireup="true" CodeBehind="DetalleProductoTienda.aspx.cs" Inherits="BettosImport.Sigeinv.WebUI.INV.DetalleProductoTienda" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+     <div class="btn-toolbar well well-sm" >
+        <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" CssClass="btn btn-info" Enabled="true" OnClick="btnNuevo_Click" />
+        
+    </div>
     
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -13,6 +16,9 @@
                 <div class="panel panel-body">
        
                     <div class="row">
+                        <div class="col-xs-4">
+                        
+                        </div>
                         <div class="col-xs-8">
                             <div class="input-group"> 
                                 <asp:TextBox ID="txtDscProducto" CssClass="form-control" placeholder="Producto" runat="server" TabIndex="1"></asp:TextBox>
@@ -21,9 +27,6 @@
                                </span>
                             </div>
                             <br />
-                            <div class="col-lg-4">
-                                <p class="text-danger"><b>TOTAL: </b><label id="lblTotal" runat="server" ></label> </p>
-                            </div>
                         </div>
                     </div>
                     <br />
@@ -32,7 +35,7 @@
                         Width="100%" CssClass ="table table-responsive" Font-Size="Small"
                         AllowPaging="True"
                         EmptyDataText="No se encontraron registros" 
-                        OnPageIndexChanging="gvListado_PageIndexChanging" OnRowDataBound="gvListado_RowDataBound">
+                        OnPageIndexChanging="gvListado_PageIndexChanging">
                         <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                         <EmptyDataRowStyle forecolor="Red" CssClass="table table-bordered" />
                         <EditRowStyle BackColor="#ffffcc" />

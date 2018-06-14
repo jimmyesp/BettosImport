@@ -79,7 +79,8 @@
                         </div>
                         <div class="col-xs-4">
                             <label>Cantidad</label>
-                            <asp:TextBox ID="txtCantidad" CssClass="form-control" placeholder="Cantidad" runat="server" readonly="false" MaxLength="50"></asp:TextBox>                       
+                            <asp:TextBox ID="txtCantidad" CssClass="form-control" placeholder="Cantidad" runat="server" readonly="false" MaxLength="50"></asp:TextBox>
+                                         
                         </div>
                         <div class="col-xs-4">
                             <label>Tipo de Documento</label>

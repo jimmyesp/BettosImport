@@ -24,5 +24,15 @@ namespace BettosImport.Sigeinv.BusinessLogic.INV
         {
             return DA_DetalleProductoTienda.ListarDetalleProductos(dscProducto);
         }
+
+        public static List<BE_DetalleProductoTienda> ListarProductosTienda(string dscProducto, string codTienda)
+        {
+            return DA_DetalleProductoTienda.ListarProductosTienda(dscProducto, codTienda);
+        }
+
+        public static bool InsertarProductoTienda(BE_DetalleProductoTienda objDetalleProducto)
+        {
+            return DA_DetalleProductoTienda.InsertarProductoTienda(objDetalleProducto);
+        }
     }
 }

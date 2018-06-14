@@ -10,14 +10,14 @@ namespace BettosImport.Sigeinv.DataAccess.INV
 {
     public class DA_TipoOperacion : DA_BaseClass
     {
-        public static List<BE_TipoOperacion> ListarTiposOperaciones()
+        public static List<BE_TipoOperacion> ListarTiposOperacionesEntradas()
         {
             try
             {
                 using (MySqlConnection cn = new MySqlConnection(cnMySql()))
                 {
                     cn.Open();
-                    using (MySqlCommand cmd = new MySqlCommand("SP_Inv_TipoOperacion_Listar", cn))
+                    using (MySqlCommand cmd = new MySqlCommand("SP_Inv_TipoOperacion_ListarEntradas", cn))
                     {
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
 

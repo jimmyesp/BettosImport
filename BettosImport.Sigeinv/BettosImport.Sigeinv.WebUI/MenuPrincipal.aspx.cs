@@ -15,9 +15,21 @@ namespace BettosImport.Sigeinv.WebUI
         {
             if (!(Page.IsPostBack))
             {
-                ListarDetalleProductos();
+             
+               // ListarDetalleProductos();
             }
         }
+
+        //private void ListarProductos()
+        //{
+        //    List<BE_Producto> lstProducto = BL_Producto.ListarProductos("");
+        //    ddlBuscar.DataSource = lstProducto;
+        //    ddlBuscar.DataValueField = "codProducto";
+        //    ddlBuscar.DataTextField = "dscProducto";
+        //    ddlBuscar.DataBind();
+        //    ddlBuscar.Items.Insert(0, new ListItem("--Seleccione--", String.Empty));
+
+        //}
 
         private void ListarDetalleProductos()
         {
@@ -29,7 +41,7 @@ namespace BettosImport.Sigeinv.WebUI
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             ListarDetalleProductos();
-            lblTotal.InnerText = "0";
+            lblTotal.InnerText = tot.ToString();
         }
 
         protected void gvListado_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -37,5 +49,18 @@ namespace BettosImport.Sigeinv.WebUI
             gvListado.PageIndex = e.NewPageIndex;
             ListarDetalleProductos();
         }
+
+        Int32 tot = 0;
+        protected void gvListado_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                tot = tot + Convert.ToInt32(e.Row.Cells[3].Text);
+                lblTotal.InnerText = tot.ToString();
+            }
+        }
+
+    
     }
 }

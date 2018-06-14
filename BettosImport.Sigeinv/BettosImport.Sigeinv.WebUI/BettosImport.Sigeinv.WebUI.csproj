@@ -102,11 +102,13 @@
     <Content Include="img\bettos2.jpeg" />
     <Content Include="img\bettos3.png" />
     <Content Include="INV\DetalleEntrada.aspx" />
+    <Content Include="INV\DetalleProductoTienda.aspx" />
     <Content Include="INV\DetalleSalida.aspx" />
     <Content Include="INV\EntradaProductos.aspx" />
     <Content Include="INV\Entradas.aspx" />
     <Content Include="INV\Producto.aspx" />
     <Content Include="INV\Productos.aspx" />
+    <Content Include="INV\ProductoTienda.aspx" />
     <Content Include="INV\Proveedor.aspx" />
     <Content Include="INV\Proveedores.aspx" />
     <Content Include="INV\SalidaProductos.aspx" />
@@ -121,6 +123,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="img\Sorting icons.psd" />
     <Content Include="SiteIntranet.Master" />
+    <None Include="Properties\PublishProfiles\bettoimport - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\bettoimport - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -184,7 +188,9 @@
     <Content Include="MenuPrincipal.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ADM\Usuario.aspx.cs">
@@ -214,6 +220,13 @@
     </Compile>
     <Compile Include="INV\DetalleEntrada.aspx.designer.cs">
       <DependentUpon>DetalleEntrada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="INV\DetalleProductoTienda.aspx.cs">
+      <DependentUpon>DetalleProductoTienda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="INV\DetalleProductoTienda.aspx.designer.cs">
+      <DependentUpon>DetalleProductoTienda.aspx</DependentUpon>
     </Compile>
     <Compile Include="INV\DetalleSalida.aspx.cs">
       <DependentUpon>DetalleSalida.aspx</DependentUpon>
@@ -249,6 +262,13 @@
     </Compile>
     <Compile Include="INV\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="INV\ProductoTienda.aspx.cs">
+      <DependentUpon>ProductoTienda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="INV\ProductoTienda.aspx.designer.cs">
+      <DependentUpon>ProductoTienda.aspx</DependentUpon>
     </Compile>
     <Compile Include="INV\Proveedor.aspx.cs">
       <DependentUpon>Proveedor.aspx</DependentUpon>

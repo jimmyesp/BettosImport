@@ -60,7 +60,7 @@ namespace BettosImport.Sigeinv.WebUI.INV
 
         private void ListarTiposOperaciones()
         {
-            List<BE_TipoOperacion> lstTipoOper = BL_TipoOperacion.ListarTiposOperaciones();
+            List<BE_TipoOperacion> lstTipoOper = BL_TipoOperacion.ListarTiposOperacionesEntradas();
             ddlTipoEntrada.DataSource = lstTipoOper;
             ddlTipoEntrada.DataValueField = "codTipoOperacion";
             ddlTipoEntrada.DataTextField = "dscTipoOperacion";

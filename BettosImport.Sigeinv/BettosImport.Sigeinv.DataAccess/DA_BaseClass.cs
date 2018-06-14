@@ -11,7 +11,8 @@ namespace BettosImport.Sigeinv.DataAccess
     {
         public static string cnMySql()
         {
-            return ConfigurationManager.AppSettings["cnMySql"].ToString();
+           // return ConfigurationManager.AppSettings["cnMySql"].ToString();
+            return ConfigurationManager.ConnectionStrings["cnMySql"].ToString();
         }
     }
 }

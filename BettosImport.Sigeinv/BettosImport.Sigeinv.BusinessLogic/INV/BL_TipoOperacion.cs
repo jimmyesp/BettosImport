@@ -10,9 +10,9 @@ namespace BettosImport.Sigeinv.BusinessLogic.INV
 {
     public class BL_TipoOperacion
     {
-        public static List<BE_TipoOperacion> ListarTiposOperaciones()
+        public static List<BE_TipoOperacion> ListarTiposOperacionesEntradas()
         {
-            return DA_TipoOperacion.ListarTiposOperaciones();
+            return DA_TipoOperacion.ListarTiposOperacionesEntradas();
         }
 
         public static List<BE_TipoOperacion> ListarTiposOperacionesSalidas()

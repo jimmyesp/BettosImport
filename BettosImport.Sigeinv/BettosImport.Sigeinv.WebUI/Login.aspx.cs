@@ -37,41 +37,49 @@ namespace BettosImport.Sigeinv.WebUI
                 mensaje += "Ingrese password. <br/>";
                 resultado = false;
             }
-
-            if (!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtPassword.Text))
+            try
             {
-                BE_Usuario objUsuario = new BE_Usuario();
-
-                objUsuario = BL_Usuario.GetLogin(txtUsuario.Text, txtPassword.Text);
-
-                if (objUsuario != null)
+                if (!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtPassword.Text))
                 {
-                    if (objUsuario.dscEstado=="I")
-                    {
-                        mensaje += "Usuario Inactivo";
-                        resultado = false;
+                    BE_Usuario objUsuario = new BE_Usuario();
 
+                    objUsuario = BL_Usuario.GetLogin(txtUsuario.Text, txtPassword.Text);
+
+                    if (objUsuario != null)
+                    {
+                        if (objUsuario.dscEstado == "I")
+                        {
+                            mensaje += "Usuario Inactivo";
+                            resultado = false;
+
+                        }
+                        else
+                        {
+                            resultado = true;
+
+                            Session[Constantes.USUARIO_SESION] = objUsuario;
+                            Response.Redirect("MenuPrincipal.aspx");
+                        }
                     }
                     else
                     {
-                        resultado = true;
-
-                        Session[Constantes.USUARIO_SESION] = objUsuario;
-                        Response.Redirect("MenuPrincipal.aspx");
-                    }                  
+                        mensaje += "Usuario o password incorrecto.";
+                        resultado = false;
+                    }
                 }
-                else
+
+                if (resultado == false)
                 {
-                    mensaje += "Usuario o password incorrecto.";
-                    resultado = false;
+                    string script = "$(function(){mostrarMensaje('" + mensaje + "','" + Constantes.ALERT_DANGER + "')})";
+                    ScriptManager.RegisterStartupScript(this, Page.GetType(), "", script, true);
                 }
             }
-
-            if (resultado == false)
+            catch (Exception ex)
             {
-                string script = "$(function(){mostrarMensaje('" + mensaje + "','" + Constantes.ALERT_DANGER + "')})";
-                ScriptManager.RegisterStartupScript(this, Page.GetType(), "", script, true);
+
+                throw ex;
             }
+            
         }
     }
 }

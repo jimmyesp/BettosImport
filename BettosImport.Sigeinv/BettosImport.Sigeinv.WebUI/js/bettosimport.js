@@ -138,6 +138,24 @@ bettosimport.util = {
          
         return false;
     },
+
+    guardar(msg) {
+        $("#spanConfirmacion").html(msg);
+
+        $("#confirmacion").dialog({
+            title: 'Bettos Import SAC',
+            modal: true,
+            buttons: {
+                "Guardar": function () { __doPostBack(''); $(this).dialog("close"); },
+                "Cancel": function () { $(this).dialog("close"); }
+            }
+        });
+
+        return false;
+    },
+
+
+
     openModalConfirmacion: function (mensaje, callback) {
         $('#message').html(mensaje);
         $('#message').dialog({

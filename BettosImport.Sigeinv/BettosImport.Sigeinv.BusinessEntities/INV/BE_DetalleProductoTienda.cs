@@ -10,8 +10,8 @@ namespace BettosImport.Sigeinv.BusinessEntities.INV
     public class BE_DetalleProductoTienda
     {
         public Int64 id { get; set; }
-        public BE_Producto codProducto { get; set; }
-        public BE_Tienda codTienda { get; set; }
+        public string codProducto { get; set; }
+        public string codTienda { get; set; }
         public string dscTienda { get; set; }
         public int cntProducto { get; set; }
         public string dscProducto { get; set; }

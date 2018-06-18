@@ -97,6 +97,8 @@
   <ItemGroup>
     <Content Include="ADM\Usuario.aspx" />
     <Content Include="ADM\Usuarios.aspx" />
+    <Content Include="ADM\UsuariosTiendas.aspx" />
+    <Content Include="ADM\UsuarioTienda.aspx" />
     <Content Include="Busqueda\Busqueda.aspx" />
     <Content Include="img\bettos.png" />
     <Content Include="img\bettos2.jpeg" />
@@ -106,6 +108,8 @@
     <Content Include="INV\DetalleSalida.aspx" />
     <Content Include="INV\EntradaProductos.aspx" />
     <Content Include="INV\Entradas.aspx" />
+    <Content Include="INV\Marca.aspx" />
+    <Content Include="INV\Marcas.aspx" />
     <Content Include="INV\Producto.aspx" />
     <Content Include="INV\Productos.aspx" />
     <Content Include="INV\ProductoTienda.aspx" />
@@ -207,6 +211,20 @@
     <Compile Include="ADM\Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ADM\UsuariosTiendas.aspx.cs">
+      <DependentUpon>UsuariosTiendas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADM\UsuariosTiendas.aspx.designer.cs">
+      <DependentUpon>UsuariosTiendas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADM\UsuarioTienda.aspx.cs">
+      <DependentUpon>UsuarioTienda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADM\UsuarioTienda.aspx.designer.cs">
+      <DependentUpon>UsuarioTienda.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Busqueda\Busqueda.aspx.cs">
       <DependentUpon>Busqueda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -248,6 +266,20 @@
     </Compile>
     <Compile Include="INV\Entradas.aspx.designer.cs">
       <DependentUpon>Entradas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="INV\Marca.aspx.cs">
+      <DependentUpon>Marca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="INV\Marca.aspx.designer.cs">
+      <DependentUpon>Marca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="INV\Marcas.aspx.cs">
+      <DependentUpon>Marcas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="INV\Marcas.aspx.designer.cs">
+      <DependentUpon>Marcas.aspx</DependentUpon>
     </Compile>
     <Compile Include="INV\Producto.aspx.cs">
       <DependentUpon>Producto.aspx</DependentUpon>

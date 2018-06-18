@@ -15,6 +15,16 @@ namespace BettosImport.Sigeinv.BusinessLogic.ADM
         {
             return DA_UsuarioTienda.GetUsuarioTienda(codUsuario);
         }
+
+        public static List<BE_UsuarioTienda> ListarUsuariosTienda(string codUsuario, string codTienda)
+        {
+            return DA_UsuarioTienda.ListarUsuariosTienda(codUsuario, codTienda);
+        }
+
+        public static bool InsertarUsuarioTienda(BE_UsuarioTienda objUsuarioTienda)
+        {
+            return DA_UsuarioTienda.InsertarUsuarioTienda(objUsuarioTienda);
+        }
     }
 }
 

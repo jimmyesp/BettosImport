@@ -20,7 +20,7 @@ namespace BettosImport.Sigeinv.WebUI.INV
             {
                 hfAccion.Value =  Request.QueryString["Accion"].ToString();
 
-                ListarMarcas();
+                ListarMarcasEnProducto();
                 ListarCategorias();
 
                 if (hfAccion.Value == Constantes.ACCION_EDITAR)
@@ -57,9 +57,9 @@ namespace BettosImport.Sigeinv.WebUI.INV
 
         }
         
-        private void ListarMarcas()
+        private void ListarMarcasEnProducto()
         {
-            List<BE_Marca> lstMarca = BL_Marca.ListarMarcas();
+            List<BE_Marca> lstMarca = BL_Marca.ListarMarcasEnProducto();
             ddlMarca.DataSource = lstMarca;
             ddlMarca.DataValueField = "codMarca";
             ddlMarca.DataTextField = "dscMarca";

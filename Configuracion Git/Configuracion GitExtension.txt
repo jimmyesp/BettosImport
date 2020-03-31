@@ -1,5 +1,0 @@
-Clonar Repositorio:
-git@github.com:Ellwin/bettosimport.git
-
-URL Repositorio Github:
-https://github.com/Ellwin/bettosimport
